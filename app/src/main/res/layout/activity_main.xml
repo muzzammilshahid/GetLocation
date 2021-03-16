@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/latitude"
+        android:layout_margin="20dp"
+        android:hint="@string/latitude"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:autofillHints=""
+        android:inputType="none" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/longitude"
+        android:layout_below="@+id/latitude"
+        android:layout_margin="20dp"
+        android:hint="@string/longitude"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:autofillHints=""
+        android:inputType="none" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_location"
+        android:text="@string/get_my_location"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/longitude"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_address"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:id="@+id/address"
+        android:layout_below="@+id/button_location"/>
+
+
+
+</RelativeLayout>
