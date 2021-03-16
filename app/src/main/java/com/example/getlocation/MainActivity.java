@@ -15,6 +15,7 @@ import android.provider.Settings;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
     //Here we are creating the custom LocationListener class
     public LocationListener locationListener = new MyLocationListener();
 
+
+    // flag for GPS Status
     private boolean gps_enable = false;
+    // flag for network status
     private boolean network_enable = false;
 
 
@@ -203,6 +207,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         return true;
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted.
+                    getMyLocation();
+
+                } else {
+
+                    // permission denied
+                    Toast.makeText(this, "The permission denied", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+        }
     }
 
 }
