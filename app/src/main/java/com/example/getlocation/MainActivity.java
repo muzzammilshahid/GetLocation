@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
 
-                // the information thet can be taken by using geocoder
+                // the information that can be taken by using geocoder
                 System.out.println("This  "+myAddress.get(0).getAdminArea()+
                         "    "+myAddress.get(0).getCountryCode()+
                         "   "+ myAddress.get(0).getFeatureName()+
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             builder.setTitle("Attention");
             builder.setMessage("Sorry, location is not available please enable the location service...");
 
-            //on pressing Enable Location go to settings to enable location
+            //on pressing Positive button go to settings to enable location
             builder.setPositiveButton("Enable Location", (dialog, which) -> {
                 Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(intent);
@@ -203,6 +203,9 @@ public class MainActivity extends AppCompatActivity {
         if (!listPermission.isEmpty()){
             ActivityCompat.requestPermissions(this,listPermission.toArray(new String[listPermission.size()]),
                     1);
+        }
+        else {
+            getMyLocation();
         }
 
 
